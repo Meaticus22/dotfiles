@@ -1,0 +1,186 @@
+{
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.listOfWorkspaceEdit": "location",
+    "diagnostic.errorSign": "✗",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.hintSign": "⚝",
+    "diagnostic.infoSign": "ℹ",
+    "explorer.sources": [
+        {
+            "name": "bookmark",
+            "expand": false
+        },
+        {
+            "name": "file",
+            "expand": true
+        }
+    ],
+    "explorer.focus": false,
+    "explorer.toggle": false,
+    "explorer.width": 45,
+    "explorer.file.showHiddenFiles": true,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.icon.source": "vim-devicons",
+    "explorer.keyMappings.global": {
+        "<cr>": [
+            "expandable?",
+            [
+                "expanded?",
+                "collapse",
+                "expand"
+            ],
+            "open"
+        ],
+        "df": "deleteForever",
+        "dF": "delete"
+    },
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
+    "explorer.file.child.labelingTemplate": "[fullpath][link][git][size][timeAccessed][timeModified][timeCreated][readonly][modified]",
+    "suggest.noselect": false,
+    "session.saveOnVimLeave": false,
+    "codeLens.enable": true,
+    "suggest.echodocSupport": true,
+    "yank.enableCompletion": false,
+    "python.jediEnabled": false,
+    "python.formatting.provider": "black",
+    "pyright.organizeimports.provider": "isort",
+    "rust-analyzer.lens.references": true,
+    "rust-analyzer.lens.implementations": true,
+    "rust-analyzer.lens.methodReferences": true,
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.checkOnSave.allTargets": false,
+    "java.autobuild.enabled": true,
+    "java.maxConcurrentBuilds": 8,
+    "java.signatureHelp.enabled": true,
+    "java.completion.overwrite": false,
+    "java.referencesCodeLens.enabled": true,
+    "java.implementationsCodeLens.enabled": true,
+    "list.normalMappings": {
+        "t": "action:tabe",
+        "v": "action:vsplit",
+        "s": "action:split",
+        "d": "expr:GetDeleteAction"
+    },
+    "list.insertMappings": {
+        "<C-t>": "action:tabe",
+        "<C-w>": "command:wincmd k",
+        "<C-p>": "command:execute \"normal \\<Up>\"",
+        "<C-n>": "command:execute \"normal \\<Down>\""
+    },
+    "snippets.ultisnips.enable": true,
+    "snippets.extends": {
+        "cpp": [
+            "c"
+        ],
+        "javascriptreact": [
+            "javascript"
+        ],
+        "typescript": [
+            "javascript"
+        ]
+    },
+    "cSpell.language": "en-GB",
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": [
+                "dockerfile"
+            ],
+            "args": [
+                "--stdio"
+            ]
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": [
+                "~"
+            ]
+        },
+        "cmake": {
+            "command": "cmake-language-server",
+            "filetypes": [
+                "cmake"
+            ],
+            "rootPatterns": [
+                "build/"
+            ],
+            "initializationOptions": {
+                "buildDirectory": "build"
+            }
+        },
+        "sql": {
+            "command": "sqls",
+            "args": [
+                "-config",
+                "$HOME/.config/sqls/config.yml"
+            ],
+            "filetypes": [
+                "sql"
+            ],
+            "shell": true
+        },
+        "jsonnet": {
+            "command": "jsonnet-language-server",
+            "filetypes": [
+                "jsonnet"
+            ]
+        }
+    },
+    "python.autoComplete.extraPaths": [
+        "${env:SPARK_HOME}/python",
+        "${env:SPARK_HOME}/python/pyspark"
+    ],
+    "diagnostic-languageserver.filetypes": {
+        "sh": "shellcheck"
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+        "sh": "shfmt"
+    },
+    "diagnostic-languageserver.formatters": {
+        "shfmt": {
+            "command": "shfmt",
+            "args": [
+                "-i",
+                "4"
+            ]
+        }
+    },
+    "git.enableGutters": true,
+    "snippets.ultisnips.pythonPrompt": false,
+    "coc.preferences": {
+        "colorSupport": true,
+        "suggest.popup.border": "none",
+        "suggest.popup.background": "#282828",
+        "suggest.popup.foreground": "#ebdbb2",
+        "suggest.popup.highlightForeground": "#d65d0e",
+        "suggest.popup.selectedForeground": "#ebdbb2",
+        "suggest.popup.selectedBackground": "#3c3836"
+    }
+}
