@@ -8,3 +8,5 @@
 - keyboard-shortcuts: [skhd](https://github.com/koekeishiya/skhd)
 
 #### __questions_ @ _u/Meaticus22__
+
+![screen-img](https://github.com/Meaticus22/dotfiles/blob/main/screen.png)
