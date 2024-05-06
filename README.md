@@ -8,6 +8,7 @@
 - keyboard-shortcuts: [skhd](https://github.com/koekeishiya/skhd)
 - wallpaper: [Dark Background](https://github.com/Meaticus22/dotfiles/blob/main/peak.png) 
 - Firefox Startpage: [Preview](https://github.com/Meaticus22/dotfiles/tree/main/startpage-main/preview.md)
+- Spicetify Theme: [Psycho](https://github.com/Meaticus22/dotfiles/tree/main/spicetify/preview.md)
 #### __questions_ @ _u/Meaticus22__
 
 ### Desktop
