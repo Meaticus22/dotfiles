@@ -12,3 +12,7 @@
 
 ### Desktop
 <img width="1920" alt="image" src="https://github.com/cmacrae/spacebar/assets/117058929/744b03a5-015b-41dd-bdae-909fbb529f06">
+
+### Desktop with Wallpaper
+<img width="1909" alt="image" src="https://github.com/Meaticus22/dotfiles/assets/117058929/8158951b-9edd-4bbb-829e-fa3cc224adf9">
+
