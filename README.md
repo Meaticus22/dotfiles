@@ -6,8 +6,9 @@
 - WM: [yabai](https://github.com/koekeishiya/yabai)
 - status-bar: [spacebar](https://github.com/cmacrae/spacebar)
 - keyboard-shortcuts: [skhd](https://github.com/koekeishiya/skhd)
-- wallpaper: [AI Generated](https://github.com/Meaticus22/dotfiles/blob/main/blood2.jpg)
+- wallpaper: Dark Background
 
 #### __questions_ @ _u/Meaticus22__
 
-![screen-img](https://github.com/Meaticus22/dotfiles/blob/main/screen.png)
+### Desktop
+<img width="1920" alt="image" src="https://github.com/cmacrae/spacebar/assets/117058929/744b03a5-015b-41dd-bdae-909fbb529f06">
