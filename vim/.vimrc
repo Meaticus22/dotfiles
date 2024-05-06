@@ -27,6 +27,7 @@ filetype on                 " filetype must be 'on' before setting it 'off'
 filetype off                " force reloading *after* pathogen loaded
 
 " set the runtime path to include Vundle and initialize
+set rtp+=/opt/homebrew/opt/fzf
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -36,7 +37,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'wincent/Command-T'
 Plugin 'vim-scripts/IndentAnything'
 Plugin 'vim-scripts/IndexedSearch'
-Plugin 'vim-scripts/LustyJuggler'
 Plugin 'gregsexton/MatchTag'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'mileszs/ack.vim'
@@ -76,6 +76,7 @@ Plugin 'tribela/vim-transparent'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'amix/vim-zenroom2'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 
 " css
 Plugin 'ap/vim-css-color'
@@ -85,7 +86,6 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'mxw/vim-jsx'
-Plugin 'millermedeiros/vim-esformatter'
 " Bundle 'marijnh/tern_for_vim'
 " snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -98,16 +98,13 @@ Plugin 'millermedeiros/vim-statline'
 " Plugin 'bling/vim-airline'
 
 " colorschemes
-Plugin 'tomasr/molokai'
-Plugin 'sainnhe/sonokai'
+
 
 " Enable mouse use in all modes
 set mouse=a
 
 "Vim vim-airline
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='raven'
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 
@@ -246,8 +243,8 @@ let &t_ut=''
 
 set termguicolors              " 256 colors terminal
 
-let g:molokai_original=0
-colorscheme molokai
+colorscheme 256_noir
+set background=dark
 " make 'var' keyword easier to spot
 hi link javascriptType Keyword
 " default ColorColumn is too distractive
@@ -264,7 +261,7 @@ hi link javascriptType Keyword
 if has('gui_running')
     set guifont=MelsoLGDZ Nerd\ Font:h16
     set gfn:MelsoLGDZ Nerd\ Font:h16
-    set transp=0.5
+    set transp=0.0
 
     " toolbar and scrollbars
     set guioptions-=T       " remove toolbar
@@ -277,7 +274,6 @@ if has('gui_running')
 endif
 
 
-set cursorline              " Highlight current line
 set laststatus=2            " Always show status line
 set number                  " Enable line numbers.
 set numberwidth=5           " width of numbers line (default on gvim is 4)
@@ -339,8 +335,6 @@ set list
 " --- remove sounds effects ---
 set noerrorbells
 set visualbell
-
-
 
 
 " -----------------------------------------------------------------------------
@@ -538,6 +532,10 @@ noremap <silent> <leader>t' :Tabularize /'<CR>
 noremap <silent> <leader>t[ :Tabularize /[<CR>
 noremap <silent> <leader>t/ :Tabularize ///<CR>
 noremap <silent> <leader>t\| :Tabularize /\|<CR>
+
+
+" --- Bracey Settings ---
+let g:bracey_auto_start_browser = 1
 
 
 " --- include content of static files ---
@@ -780,8 +778,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 
 " add spaces inside current parenthesis
-map <leader>( vi(xi  P
-
+map <leader>( vi(xi  P 
 
 
 " -----------------------------------------------------------------------------
