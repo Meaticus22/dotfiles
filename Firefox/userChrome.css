@@ -6,9 +6,7 @@
  | |  | | | | | | | | | | | | | | | | | (_| |
  |_|  |_| |_| |_| |_| |_| |_| |_| |_|  \__,_|
                                             
-https://github.com/rockofox/firefox-minima/blob/main/userChrome.css
 
-I use https://addons.mozilla.org/en-US/firefox/addon/black123/ as my theme
 */
 
 
@@ -20,6 +18,7 @@ I use https://addons.mozilla.org/en-US/firefox/addon/black123/ as my theme
 	--max-tab-width: none; /* The maximum width a tab in the tab bar can use. Set this to none for no limit */
 	--show-titlebar-buttons: none; /* Hide the buttons (close/minimize/maximize) in the title bar. Required on some platforms (e.g macOS) to fully hide the title bar. `none` hides them, `block` shows them */
 	--tab-height: 20px;
+	  --toolbar-field-color: #FF0000 !important;
 }
 
 /* Minima Source Code. Here be dragons. */
@@ -202,3 +201,37 @@ backdrop-filter: blur(20px);
 
 border-radius: 16px;
 }
+#urlbar-input::-moz-selection { background-color: #ff0000 !important;
+}
+.urlbarView-title {
+color: red !important;
+}
+.urlbarView-url {
+color: white !important;
+}
+.urlbarView-row[selected] .urlbarView-row-inner {
+background-color: black !important;
+}
+
+.urlbarView-row:hover .urlbarView-row-inner {
+background-color: black !important;
+}
+
+.urlbarView-row[selected]:hover .urlbarView-row-inner {
+background-color: black !important;
+}
+@-moz-document url(chrome://browser/content/browser.xul),
+               url(chrome://browser/content/browser.xhtml) {
+    #urlbar-results{
+        background-color: #000000 !important;
+	}
+	#urlbar-background {
+    background: #000000 !important;
+	}
+	#urlbar[breakout][breakout-extend] #urlbar-background {
+	border-color: #000000 !important;
+	}
+}
+#urlbar {
+  color: white !important;
+}    
