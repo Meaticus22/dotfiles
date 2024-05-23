@@ -12,8 +12,10 @@
 #### __questions_ @ _u/Meaticus22__
 
 ### Desktop
-<img width="1920" alt="image" src="https://github.com/cmacrae/spacebar/assets/117058929/744b03a5-015b-41dd-bdae-909fbb529f06">
+<img width="1920" alt="image" src="https://github.com/Meaticus22/dotfiles/assets/117058929/9463da75-1fb7-440e-ae4b-b6b1adf3b813">
+
 
 ### Desktop with Wallpaper
-<img width="1909" alt="image" src="https://github.com/Meaticus22/dotfiles/assets/117058929/8158951b-9edd-4bbb-829e-fa3cc224adf9">
+<img width="1919" alt="image" src="https://github.com/Meaticus22/dotfiles/assets/117058929/24c75fda-64d4-4ba1-9501-cd3921510ce8">
+
 
