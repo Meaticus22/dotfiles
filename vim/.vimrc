@@ -69,15 +69,15 @@ set mouse=a
 
 "Vim vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme= 'monochrome'
+let g:airline_theme = 'monochrome'
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 
-function! AirlineThemePatch(palette)
- let a:palette.normal.airline_c = [ '#292929', '', 235, '']
- let a:palette.insert.airline_c = [ '#292929', '', 235, '']
- let a:palette.visual.airline_c = [ '#292929', '', 235, '']
- let a:palette.replace.airline_c = [ '#292929', '', 235, '']
- let a:palette.inactive.airline_c = [ '#292929', '', 235, '']
+function AirlineThemePatch(palette)
+  let a:palette.normal.airline_c = [ '#292929', '', 235, '']
+  let a:palette.insert.airline_c = [ '#292929', '', 235, '']
+  let a:palette.visual.airline_c = [ '#292929', '', 235, '']
+  let a:palette.replace.airline_c = [ '#292929', '', 235, '']
+  let a:palette.inactive.airline_c = [ '#292929', '', 235, '']
 endfunction
 
 
@@ -400,6 +400,7 @@ noremap <silent> <leader>t\| :Tabularize /\|<CR>
 
 " --- Bracey Settings ---
 let g:bracey_auto_start_browser = 1
+nnoremap <Leader>b :Bracey<CR>
 
 
 " --- include content of static files ---
@@ -492,6 +493,10 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nnoremap <Leader>g :Goyo<CR>
 
+
+
+
+
 " -----------------------------------------------------------------------------
 " KEY MAPPINGS
 " -----------------------------------------------------------------------------
@@ -582,3 +587,9 @@ nnoremap <silent> <leader>ts :set spell!<CR>
 
 " add spaces inside current parenthesis
 map <leader>( vi(xi  P
+
+
+
+
+
+
