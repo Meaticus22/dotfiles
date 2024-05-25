@@ -1,7 +1,7 @@
 "----------------------------------------------------------------
-"   		 _
-"     _   __(_)___ ___  __________
-"    | | / / / __ `__ \/ ___/ ___/
+"  		  _
+" 	_   __(_)___ ___  __________
+"	| | / / / __ `__ \/ ___/ ___/
 "   _| |/ / / / / / / / /  / /__
 "  (_)___/_/_/ /_/ /_/_/   \___/
 "
@@ -9,7 +9,7 @@
 "  Version : 9.0
 "  License : MIT
 "  Author  : Meaticus22
-"  URL     : https://github.com/meaticus22/dotfiles
+"  URL 	: https://github.com/meaticus22/dotfiles
 "----------------------------------------------------------------
 " =============================================================================
 " -----------------------------------------------------------------------------
@@ -19,12 +19,12 @@
 " BEHAVIOR
 " -----------------------------------------------------------------------------
 
-set nocompatible        	" Disable vi compatibility
+set nocompatible   		 " Disable vi compatibility
 
-filetype on             	" filetype must be 'on' before setting it 'off'
-                        	"   otherwise it exits with a bad status and breaks
-                        	"   git commit.
-filetype off            	" force reloading *after* pathogen loaded
+filetype on        		 " filetype must be 'on' before setting it 'off'
+                   		 "   otherwise it exits with a bad status and breaks
+                   		 "   git commit.
+filetype off       		 " force reloading *after* pathogen loaded
 
 " set the runtime path to include Vundle and initialize
 set rtp+=/opt/homebrew/opt/fzf
@@ -69,15 +69,15 @@ set mouse=a
 
 "Vim vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='raven'
+let g:airline_theme= 'monochrome'
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 
 function! AirlineThemePatch(palette)
- let a:palette.normal.airline_c = [ '#424242', '', 235, '']
- let a:palette.insert.airline_c = [ '#424242', '', 235, '']
- let a:palette.visual.airline_c = [ '#424242', '', 235, '']
- let a:palette.replace.airline_c = [ '#424242', '', 235, '']
- let a:palette.inactive.airline_c = [ '#424242', '', 235, '']
+ let a:palette.normal.airline_c = [ '#292929', '', 235, '']
+ let a:palette.insert.airline_c = [ '#292929', '', 235, '']
+ let a:palette.visual.airline_c = [ '#292929', '', 235, '']
+ let a:palette.replace.airline_c = [ '#292929', '', 235, '']
+ let a:palette.inactive.airline_c = [ '#292929', '', 235, '']
 endfunction
 
 
@@ -97,21 +97,21 @@ set directory=~/.vim/swaps
 let mapleader=","
 let maplocalleader=";"
 
-set spelllang=en_us     	" spell checking
+set spelllang=en_us		 " spell checking
 set encoding=utf-8 nobomb   " BOM often causes trouble, UTF-8 is awsum.
 
 
 " --- performance / buffer ---
-set hidden              	" can put buffer to the background without writing
-                        	"   to disk, will remember history/marks.
-set lazyredraw          	" don't update the display while executing macros
-set ttyfast             	" Send more characters at a given time.
+set hidden         		 " can put buffer to the background without writing
+                   		 "   to disk, will remember history/marks.
+set lazyredraw     		 " don't update the display while executing macros
+set ttyfast        		 " Send more characters at a given time.
 
 
 " --- history / file handling ---
-set history=999         	" Increase history (default = 20)
-set undolevels=999      	" Moar undo (default=100)
-set autoread            	" reload files if changed externally
+set history=999    		 " Increase history (default = 20)
+set undolevels=999 		 " Moar undo (default=100)
+set autoread       		 " reload files if changed externally
 
 
 " --- backup and swap files ---
@@ -122,32 +122,32 @@ set noswapfile
 
 
 " --- search / regexp ---
-set gdefault            	" RegExp global by default
-set magic               	" Enable extended regexes.
-set hlsearch            	" highlight searches
-set incsearch           	" show the `best match so far' astyped
-set ignorecase smartcase	" make searches case-insensitive, unless they
-                        	"   contain upper-case letters
+set gdefault       		 " RegExp global by default
+set magic          		 " Enable extended regexes.
+set hlsearch       		 " highlight searches
+set incsearch      		 " show the `best match so far' astyped
+set ignorecase smartcase    " make searches case-insensitive, unless they
+                   		 "   contain upper-case letters
 
 " --- keys ---
 set backspace=indent,eol,start  " allow backspacing over everything.
-set esckeys                 	" Allow cursor keys in insert mode.
-set nostartofline           	" Make j/k respect the columns
-" set virtualedit=all        	" allow the cursor to go in to 'invalid' places
-set timeoutlen=500          	" how long it wait for mapped commands
-set ttimeoutlen=100         	" faster timeout for escape key and others
+set esckeys            		 " Allow cursor keys in insert mode.
+set nostartofline      		 " Make j/k respect the columns
+" set virtualedit=all   		 " allow the cursor to go in to 'invalid' places
+set timeoutlen=500     		 " how long it wait for mapped commands
+set ttimeoutlen=100    		 " faster timeout for escape key and others
 
 
 " -----------------------------------------------------------------------------
 " UI
 " -----------------------------------------------------------------------------
 
-set termguicolors          	" 256 colors terminal
+set termguicolors     		 " 256 colors terminal
 
 colorscheme 256_noir
 set background=dark
 " Change highlighting of cursor line when entering/leaving Insert Mode
-set cursorline
+set nocursorline
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
 autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
@@ -156,42 +156,42 @@ autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 g
 
 
 if has('gui_running')
-	set guifont=MelsoLGDZ Nerd\ Font:h16
-	set gfn:MelsoLGDZ Nerd\ Font:h16
-	set transp=0.0
+    set guifont=MelsoLGDZ Nerd\ Font:h16
+    set gfn:MelsoLGDZ Nerd\ Font:h16
+    set transp=0.0
 
-	" toolbar and scrollbars
-	set guioptions-=T   	" remove toolbar
-	set guioptions-=h  	" only calculate bottom scroll size of current line
-	set shortmess=atI   	" Don't show the intro message at start and
-                        	"   truncate msgs (avoid press ENTER msgs).
+    " toolbar and scrollbars
+    set guioptions-=T  	 " remove toolbar
+    set guioptions-=h 	 " only calculate bottom scroll size of current line
+    set shortmess=atI  	 " Don't show the intro message at start and
+                   		 "   truncate msgs (avoid press ENTER msgs).
 endif
 
 
-set laststatus=2        	" Always show status line
-set number              	" Enable line numbers.
-set numberwidth=5       	" width of numbers line (default on gvim is 4)
-set report=0            	" Show all changes.
-set showmode            	" Show the current mode.
-set showcmd             	" show partial command on last line of screen.
-set showmatch           	" show matching parenthesis
+set laststatus=2   		 " Always show status line
+set number         		 " Enable line numbers.
+set numberwidth=5  		 " width of numbers line (default on gvim is 4)
+set report=0       		 " Show all changes.
+set showmode       		 " Show the current mode.
+set showcmd        		 " show partial command on last line of screen.
+set showmatch      		 " show matching parenthesis
 set splitbelow splitright   " how to split new windows.
-set title               	" Show the filename in the window title bar.
+set title          		 " Show the filename in the window title bar.
 
-set scrolloff=5         	" Start scrolling n lines before horizontal
-                        	"   border of window.
-set sidescrolloff=7     	" Start scrolling n chars before end of screen.
-set sidescroll=1        	" The minimal number of columns to scroll
-                        	"   horizontally.
+set scrolloff=5    		 " Start scrolling n lines before horizontal
+                   		 "   border of window.
+set sidescrolloff=7		 " Start scrolling n chars before end of screen.
+set sidescroll=1   		 " The minimal number of columns to scroll
+                   		 "   horizontally.
 
 " add useful stuff to title bar (file name, flags, cwd)
 " based on @factorylabs
 if has('title') && (has('gui_running') || &title)
-	set titlestring=
-	set titlestring+=%f
-	set titlestring+=%h%m%r%w
-	set titlestring+=\ -\ %{v:progname}
-	set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
+    set titlestring=
+    set titlestring+=%f
+    set titlestring+=%h%m%r%w
+    set titlestring+=\ -\ %{v:progname}
+    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
 endif
 
 " use relative line number by default
@@ -200,22 +200,22 @@ if exists('+relativenumber')
 endif
 
 " --- command completion ---
-set wildmenu            	" Hitting TAB in command mode will
-set wildchar=<TAB>      	"   show possible completions.
+set wildmenu       		 " Hitting TAB in command mode will
+set wildchar=<TAB> 		 "   show possible completions.
 set wildmode=list:longest
 set wildignore+=*.DS_STORE,*.db,node_modules/**,*.jpg,*.png,*.gif
 
 
 " --- diff ---
-set diffopt=filler      	" Add vertical spaces to keep right
-                        	"   and left aligned.
-set diffopt+=iwhite     	" Ignore whitespace changes.
+set diffopt=filler 		 " Add vertical spaces to keep right
+                   		 "   and left aligned.
+set diffopt+=iwhite		 " Ignore whitespace changes.
 
 
 " --- folding---
-set foldmethod=manual   	" manual fold
-set foldnestmax=3       	" deepest fold is 3 levels
-set nofoldenable        	" don't fold by default
+set foldmethod=manual  	 " manual fold
+set foldnestmax=3  		 " deepest fold is 3 levels
+set nofoldenable   		 " don't fold by default
 
 
 " --- list chars ---
@@ -230,30 +230,35 @@ set list
 set noerrorbells
 set visualbell
 
+"Mode Settings
+
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[5 q" "SR = REPLACE mode
+let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
 
 " -----------------------------------------------------------------------------
 " INDENTATION AND TEXT-WRAP
 " -----------------------------------------------------------------------------
 
-set expandtab               	" Expand tabs to spaces
-set autoindent smartindent  	" auto/smart indent
-set copyindent              	" copy previous indentation on auto indent
-set softtabstop=2           	" Tab key results in # spaces
-set tabstop=2               	" Tab is # spaces
-set shiftwidth=2            	" The # of spaces for indenting.
-set smarttab                	" At start of line, <Tab> inserts shift width
-                            	"   spaces, <Bs> deletes shift width spaces.
+set expandtab          		 " Expand tabs to spaces
+set autoindent smartindent 	 " auto/smart indent
+set copyindent         		 " copy previous indentation on auto indent
+set softtabstop=2      		 " Tab key results in # spaces
+set tabstop=2          		 " Tab is # spaces
+set shiftwidth=2       		 " The # of spaces for indenting.
+set smarttab           		 " At start of line, <Tab> inserts shift width
+                       		 "   spaces, <Bs> deletes shift width spaces.
 
-set wrap                    	" wrap lines
+set wrap               		 " wrap lines
 set textwidth=80
-set formatoptions=qrn1      	" automatic formating.
-set formatoptions-=o        	" don't start new lines w/ comment leader on
-                            	"   pressing 'o'
+set formatoptions=qrn1 		 " automatic formating.
+set formatoptions-=o   		 " don't start new lines w/ comment leader on
+                       		 "   pressing 'o'
 
-set nomodeline              	" don't use modeline (security)
+set nomodeline         		 " don't use modeline (security)
 
-set pastetoggle=<leader>p   	" paste mode: avoid auto indent, treat chars
-                            	"   as literal.
+set pastetoggle=<leader>p  	 " paste mode: avoid auto indent, treat chars
+                       		 "   as literal.
 
 
 
@@ -263,7 +268,7 @@ set pastetoggle=<leader>p   	" paste mode: avoid auto indent, treat chars
 
 " --- NERDTree ----
 let NERDTreeIgnore=['.DS_Store']
-let NERDTreeShowBookmarks=0     	"show bookmarks on startup
+let NERDTreeShowBookmarks=0		 "show bookmarks on startup
 let NERDTreeHighlightCursorline=1   "Highlight the selected entry in the tree
 let NERDTreeShowLineNumbers=0
 let NERDTreeMinimalUI=1
@@ -273,10 +278,10 @@ noremap <C-S> :NERDTreeToggle<CR>
 
 " --- NERDCommenter ---
 
-let NERDSpaceDelims=1           	" space around delimiters
+let NERDSpaceDelims=1      		 " space around delimiters
 let NERDRemoveExtraSpaces=1
 let g:NERDCustomDelimiters = {
-	\ 'scss': { 'left': '//' }
+    \ 'scss': { 'left': '//' }
 \ }
 
 
@@ -332,11 +337,11 @@ let g:EasyMotion_mapping_F = '<leader>F'
 
 " --- Strip trailing whitespace ---
 function! StripWhitespace ()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
 endfunction
 
 " Trailing white space (strip spaces)
@@ -366,11 +371,11 @@ let g:statline_mixed_indent_string = '[mix]'
 " --- toggle indentation mode ---
 
 function! ToggleExpandTab()
-	if &et
-    	set noet softtabstop=0
-	else
-    	execute "set et softtabstop=". &tabstop
-	endif
+    if &et
+   	 set noet softtabstop=0
+    else
+   	 execute "set et softtabstop=". &tabstop
+    endif
 endfunction
 
 noremap <silent> <leader>et :call ToggleExpandTab()<CR>
@@ -412,10 +417,10 @@ noremap <silent> <leader>ic :call IncludeStatic()<CR>
 vnoremap <silent> <leader>md :! mdown<CR>
 
 function! SanitizeMdown()
-	%s/<\/\?p>//
-	%s/<br \?\/\?>/ /
-	%s/<pre><code>/<pre class="brush:js">\r/
-	%s/<\/code><\/pre>/<\/pre>/
+    %s/<\/\?p>//
+    %s/<br \?\/\?>/ /
+    %s/<pre><code>/<pre class="brush:js">\r/
+    %s/<\/code><\/pre>/<\/pre>/
 endfunc
 noremap <silent> <leader>mds :call SanitizeMdown()<CR>
 
@@ -431,11 +436,11 @@ vnoremap <silent> <leader>es :EsformatterVisual<CR>
 " --- toggle autocomplete behavior and word delimiters ---
 
 function! KeywordsAll()
-	setl iskeyword=@,48-57,192-255,\@,\$,%,-,_
+    setl iskeyword=@,48-57,192-255,\@,\$,%,-,_
 endfunc
 
 function! KeywordsBasic()
-	setl iskeyword=@,48-57,192-255
+    setl iskeyword=@,48-57,192-255
 endfunc
 
 
@@ -446,8 +451,8 @@ let g:DVB_TrimWS = 1
 vmap  <expr>  <S-LEFT>   DVB_Drag('left')
 vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
 vmap  <expr>  <S-DOWN>   DVB_Drag('down')
-vmap  <expr>  <S-UP> 	DVB_Drag('up')
-vmap  <expr>  D    	DVB_Duplicate()
+vmap  <expr>  <S-UP>     DVB_Drag('up')
+vmap  <expr>  D   	 DVB_Duplicate()
 
 
 " --- transform lists ---
@@ -465,6 +470,29 @@ let g:user_emmet_leader_key=','
 
 " --- coc.nvim ---
 let g:coc_config_home = '~/.vim'
+
+
+
+
+" --- goyo vim ---
+let g:goyo_height='80%'
+let g:goyo_width='80%'
+function! s:goyo_enter()
+  set linebreak
+  set spell spelllang=en_us
+endfunction
+
+function! s:goyo_leave()
+  set nolinebreak
+  set nospell
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+
+
+
 
 " -----------------------------------------------------------------------------
 " KEY MAPPINGS
@@ -556,4 +584,3 @@ nnoremap <silent> <leader>ts :set spell!<CR>
 
 " add spaces inside current parenthesis
 map <leader>( vi(xi  P
-
