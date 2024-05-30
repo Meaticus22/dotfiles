@@ -62,7 +62,8 @@ Plugin 'millermedeiros/vim-statline'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plugin 'lervag/vimtex'
-
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'conornewton/vim-latex-preview'
 " Enable mouse use in all modes
 set mouse=a
 
@@ -234,6 +235,9 @@ set visualbell
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[5 q" "SR = REPLACE mode
 let &t_EI.="\e[6 q" "EI = NORMAL mode (ELSE)
+
+"auto reload vimtex pdf
+autocmd Filetype tex setl updatetime=1
 
 
 " -----------------------------------------------------------------------------
@@ -468,35 +472,18 @@ let g:startify_center=80
 
 
 " Vimtex {{{
-let g:vimtex_view_method = 'pdflatex'
-let g:vimtex_view_general_callback = 'TermPDF'
-let g:vimtex_view_automatic = 0
+" let g:vimtex_view_method = 'general'
+" let g:vimtex_view_general_callback = 'TermPDF'
+" let g:vimtex_view_automatic = 0
 
-function TermPDF(status) abort
-  if a:status
-    call system('kitty @ kitten termpdf.py '.  expand('%:p:h'). '/'. expand('%:r').'.pdf')
-  endif
-endfunction
+" Key Bindings
+" nnoremap <Leader>e :VimtexCompile<CR>
 
-function TermPDFClose() abort
-  call system('kitty @ close-window --match title:termpdf')
-endfunction
+"PDF Live Viewer (https://github.com/conornewton/vim-latex-preview)
+let g:latex_pdf_viewer="$HOME/.config/termpdf.py/termpdf.py"
+let g:latex_preview_clean = 1
 
-augroup VimtexTest
-  autocmd!
-  autocmd FileType tex :VimtexCompile
-  autocmd FileType tex :VimtexClean
-  autocmd! User VimtexEventCompileStopped call TermPDFClose(1)
-augroup end
-
-command CompilePdf silent!pdflatex % > /dev/null
-let s:kitty_cmd = 'kitty @ new-window --title="PDF View"'
-command OpenPdfView call feedkeys(s:kitty_cmd)
-
-
-nnoremap <Leader>e :VimtexCompile<CR>
-
-
+nnoremap <Leader>w :StartLatexPreview<CR>
 
 
 
