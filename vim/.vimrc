@@ -64,6 +64,7 @@ Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plugin 'lervag/vimtex'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'conornewton/vim-latex-preview'
+Plugin 'conornewton/vim-pandoc-markdown-preview'
 " Enable mouse use in all modes
 set mouse=a
 
@@ -486,6 +487,12 @@ let g:latex_preview_clean = 1
 nnoremap <Leader>w :StartLatexPreview<CR>
 
 
+"Vim Pandoc Markdown Preview(https://github.com/conornewton/vim-pandoc-markdown-preview)
+let g:md_pdf_viewer="$HOME/.config/termpdf.py/termpdf.py"
+let g:md_args = "--template eisvogel --listings"
+
+nnoremap <Leader>p :StartMDPreview<CR>
+
 
 " -----------------------------------------------------------------------------
 " KEY MAPPINGS
@@ -577,6 +584,3 @@ nnoremap <silent> <leader>ts :set spell!<CR>
 
 " add spaces inside current parenthesis
 map <leader>( vi(xi  P
-
-
-
