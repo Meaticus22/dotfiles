@@ -119,9 +119,12 @@ alias cat="bat"
 alias env="virtualenv myenv"
 alias startenv="source myenv/bin/activate"
 # alias python3=ptpython
-alias python=ptpython 
+# alias python=ptpython 
 alias du=dust
 alias icat="kitten icat"
+alias clock="tty-clock -c -C 1"
+alias kittyupdate='curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin'
+alias termpdf='/Users/meaticus/.config/kitty/termpdf.py'
 #alias open="open -a Firefox"
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -134,3 +137,6 @@ export TERM=xterm-256color
 mfetch
 
 export PATH=$PATH:/Users/meaticus/.spicetify
+
+export PATH="/Users/meaticus/.local/bin:$PATH"
+
