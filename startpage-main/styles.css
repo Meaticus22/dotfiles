@@ -1,172 +1,170 @@
 :root {
-    --section_padding: 33px;
-    --section_width: 66%;
-    --border_radius: 16px;
+  --color-bg: #000000; /* Updated to black */
+  --color-bg-light: #2d4f67;
+  --color-fg: #dcd7ba;
+
+  --color-link-hover: #72a7bc;
+  --color-link: #FF0000; /* Red color for links */
+
+  --font-family: "SpaceMono Nerd Font", monospace;
 }
+
+* {
+  box-sizing: border-box;
+  text-transform: lowercase;
+}
+
+html,
 body {
-    margin: 0px;
-    background: rgb(17, 16, 19);
+  overflow: hidden;
+  background: var(--color-bg); /* Background color set to black */
+  color: var(--color-fg);
+  font-family: var(--font-family);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-/*Main grid*/
 
-.section {
-    position: absolute;
-    float: left;
-    width: var(--section_width);
-    margin: 0;
-    overflow: hidden;
-    top: 7%;
-    bottom: 25%;
-    left: calc( ( 100% - var(--section_width)) / 2 - var(--section_padding));
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: auto auto auto;
-    padding: var(--section_padding);
-    border: 2px solid #FF0000; /* Added red border */
-    border-radius: var(--border_radius);
-    box-shadow: 3px 3px 7px 0px black;
-    background: rgba(30, 32, 37, 0.2);
-    text-align: center;
+header {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
-/*Grid elements*/
 
-.bookmark {
-    display: block;
-    padding: 10%;
-    width: 80%;
-    justify-content: center;
-    border-radius: var(--border_radius);
-    background: rgba(18, 20, 23, 0.997);
-    filter: brightness(0.8);
-    transition: filter 0.5s ease-out;
-    transition: box-shadow 0.1s linear;
+header div#img {
+  width: 60%;
+  height: 100%;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.bookmark img {
-    position: absolute;
-    width: 23%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: saturate(0.2) brightness(0.8);
-    transition: filter 0.5s ease-in;
-    transition: transform 0.2s ease-in;
-}
-/*Hover effects*/
 
-.bookmark:hover {
-    background: radial-gradient( ellipse at center, rgb(30, 26, 34), rgb(27, 24, 30) 100%);
-    background: -moz-radial-gradient(center, ellipse cover, rgb(30, 26, 34), rgb(27, 24, 30) 100%);
-    filter: brightness(1);
-    box-shadow: 1px 1px 0px 1px rgba(3, 3, 3, 0.2);
+header div#img img {
+  width: 25vw;
 }
-.bookmark:hover img {
-    transform: scale(1.15) translate(-45%, -45%);
-    filter: saturate(1.5) brightness(1.3);
-    border: none;
-}
-/*Makes parent element button-like*/
 
-.link {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: 2;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  right: 0;
 }
-/*Search bar line*/
 
-.search_bar {
-    position: absolute;
-    float: left;
-    padding: 0;
-    height: 8px;
-    width: calc( var(--section_width) + 8%);
-    overflow: hidden;
-    bottom: 8%;
-    left: calc( ( 100% - var(--section_width)) / 2 - 4%);
-    right: 50%;
-    border-radius: 20px;
-    background: radial-gradient(rgba(200, 200, 200, 1),
-    /**/
-    rgba(200, 200, 200, 0.6), rgba(150, 150, 150, 0.3),
-    /**/
-    rgba(150, 150, 150, 0.1), rgba(100, 100, 100, 0.1),
-    /**/
-    rgba(70, 70, 70, 0.1), rgba(70, 70, 70, 0.1),
-    /**/
-    rgba(30, 30, 30, 0.1));
+main #content {
+  left: 0;
+  position: absolute;
+  width: 85%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
 }
-/*Search bar input*/
 
-.search_input {
-    position: absolute;
-    width: 50%;
-    bottom: 9%;
-    float: left;
-    left:25%;
-    padding-bottom: 4px;
-    border-color: transparent;
-    border-radius: var(--border_radius);
-    text-align: center;
-    outline: none;
-    font-size: 4vw;
-    color: transparent;
-    filter: brightness(2.5);
-    letter-spacing: 5px;
-    caret-color: rgb(30, 30, 30);
-    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.1);
-    background: rgba(18, 20, 23, 0.996);
-    background-clip: text;
-    -webkit-background-clip: text;
+main #head {
+  text-align: left;
 }
-/*Search Placeholder*/
 
-::-webkit-input-placeholder {
-    color: transparent;
-    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.2);
-    filter: opacity(1);
+main #links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-/*Selected text*/
 
-.search_input::selection {
-    color: white;
-    text-shadow: none!important;
-    background: rgb(30, 30, 30, 0.5)
+main #links section {
+  margin: 0 15px;
 }
-/*Torch effect*/
 
-.cursor {
-    opacity: 0.8;
-    width: 100vw;
-    height: 130vh;
-    position: relative;
-    background: radial-gradient(rgba(255, 255, 255, 1),
-    /**/
-    rgba(255, 255, 255, 0.3),
-    /**/
-    rgba(200, 200, 200, 0.1),
-    /**/
-    rgba(200, 200, 200, 0.05),
-    /**/
-    rgba(150, 150, 150, 0.0),
-    /**/
-    rgba(100, 100, 100, 0),
-    /**/
-    rgba(70, 70, 70, 0));
+form {
+  font-size: 2.15vw;
+  white-space: nowrap;
 }
-/*Gradient overlay*/
 
-#grad {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    pointer-events: none;
-    filter: saturate(1) brightness(1) blur(1px);
-    background: radial-gradient( closest-corner at 41% 89%, rgba(32, 24, 40, 1), transparent 600%);
-    background-repeat: no-repeat;
-    z-index: 3;
+form input[type=text] {
+  width: 75%;
+  display: inline-block;
+  border: 2px solid var(--color-link); /* Thin red border */
+  background-color: var(--color-bg); /* Black background */
+  padding: 10px;
+  color: var(--color-fg); /* White text */
+  font-family: var(--font-family);
+  font-size: 2vw;
+  border-radius: 8px;
+}
+
+form input[type=text]:focus {
+  outline: none;
+  border: 2px solid var(--color-link); /* Maintain red border on focus */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+footer * {
+  height: min-content;
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+}
+
+li {
+  font-size: 0.9vw;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-link); /* Red color for links */
+  transition-duration: 0.2s;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  transition-duration: 0.2s;
+}
+
+.blinking {
+  animation: opacity 1s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Additional styles for text colors in specific sections */
+#links section h3, #links section ul li {
+  color: var(--color-fg); /* Assuming you want the headers and list items to keep their original color */
+}
+
+#weatherDesc {
+  color: var(--color-fg); /* White text color for the weather description */
 }
