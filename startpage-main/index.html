@@ -1,133 +1,186 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            New Tab
-        </title>
-        <meta charset="utf-8"/>
-        <link href="styles.css" rel="stylesheet">
-        </link>
-    </head>
-    <body>
-        <div id="grad">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>~/startpage</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&amp;display=swap" rel="stylesheet">
+
+    <!-- anime.js -->
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="img">
+            <img src="image.gif" />
         </div>
-        <div class="section extra">
-            <div class="cursor" id="div1">
+    </header>
+
+    <main>
+        <div id="content">
+            <div id="head">
+                <form action="https://duckduckgo.com/">
+                    <label for="q"> search / </label>
+                    <input type="text" name="q" autocomplete="off" autofocus>
+                </form>
+                <div id="info">
+                    <p id="temp">Loading...</p>
+                    <p id="weatherDesc">Loading...</p>
+                </div>
             </div>
-        </div>
-        <div class="section">
-            <div class="bookmark item_a1">
-                <a class="link" href="https://www.reddit.com/">
-                </a>
-                <img class="link-display-icon fa-reddit-alien" src="src/reddit.png">
-                </img>
-            </div>
-            <div class="bookmark item_a2">
-                <a class="link" href="https://mail.google.com/">
-                </a>
-                <img class="link-display-icon" src="src/gm.png">
-                </img>
-            </div>
-            <div class="bookmark item_a3">
-                <a class="link" href="https://www.youtube.com/">
-                </a>
-                <img class="link-display-icon" src="src/yt.png">
-                </img>
-            </div>
-            <div class="bookmark item_b1">
-                <a class="link" href="https://www.github.com/">
-                </a>
-                <img class="link-display-icon" src="src/gh.png">
-                </img>
-            </div>
-            <div class="bookmark item_b2">
-                <a class="link" href="https://www.discord.com/">
-                </a>
-                <img class="link-display-icon" src="src/dc.png">
-                </img>
-            </div>
-            <div class="bookmark item_b3">
-                <a class="link" href="https://www.phind.com/">
-                </a>
-                <img class="link-display-icon" src="src/ph.png">
-                </img>
-            </div>
-            <div class="bookmark item_c1">
-                <a class="link" href="https://www.twitch.tv/">
-                </a>
-                <img class="link-display-icon" src="src/twi.png">
-                </img>
-            </div>
-            <div class="bookmark item_c2">
-                <a class="link" href="https://www.twitter.com/">
-                </a>
-                <img class="link-display-icon" src="src/hn.png">
-                </img>
-            </div>
-            <div class="bookmark item_c3">
-                <a class="link" href="https://stream.thehairy.me/">
-                </a>
-                <img class="link-display-icon" src="src/mv.png">
-                </img>
+            <div id="links">
+                <section>
+                    <h3>code </h3>
+                        <ul>
+                            <li><a href="https://github.com">github </a></li>
+			    <li><a href="https://explainshell.com">explainshell</a></li>
+                            <li><a href="https://www.discord.com">HELP</a></li>
+                        </ul>
+                </section>
+                <section>
+                    <h3>chill </h3>
+                        <ul>
+                            <li><a href="https://reddit.com">pass time</a></li>
+                            <li><a href="https://www.twitter.com">tweets</a></li>
+                            <li><a href="https://www.twitch.tv/">popcorn</a></li>
+                        </ul>
+                </section>
+                <section>
+                    <h3>study</h3>
+                        <ul>
+                            <li><a href="https://www.twitch.tv/">RCHS</a></li>
+                            <li><a href="https://scholar.google.com">materials</a></li>
+                            <li><a href="https://mail.google.com/mail/u/0/">mail</a></li>
+                        </ul>
+                </section>
+                <section>
+                    <h3>watch</h3>
+                        <ul>
+                            <li><a href="https://www.essential.wtf">movie-web</a></li>
+                            <li><a href="https://youtube.com">youtube</a></li>
+                            <li><a href="https://editorial.rottentomatoes.com/rt-hub/what-to-watch/">"idk what to watch"</a></li>
+                        </ul>
+                </section>
             </div>
         </div>
-        <div class="search_bar">
-            <div class="cursor cursor2" id="div2">
-            </div>
-        </div>
-        <form action="https://www.google.com/search?q=" method="get">
-            <input autocomplete="off" autofocus="" class="search_input" name="q" placeholder="Search the Web" type="text">
-            </input>
-        </form>
-    </body>
+    </main>
+    <footer>
+        <a href="https://github.com/meaticus22">Github</a>
+    </footer>
+    <script type="module">
+        // ----- CHANGE THESE VARIABLES
+
+        // Do you want to show the weather?
+        const weather = true;
+        // Do you want animations?
+        const animated = true;
+
+        // Read the documentation for setting the weather API key
+        const apiKey = "ef23beaaf400ef89b017a7f6faa58e11";
+        const lat = 37.82532;
+        const lon = -79.59565;
+        const units = "imperial";
+
+        // ----- DON'T TOUCH ANYTHING BELOW THIS UNLESS YOU KNOW WHAT YOU'RE DOING
+
+        var weatherEl = document.getElementById("weatherDesc");
+        var tempEl = document.getElementById("temp");
+
+        if (weather) {
+            var apiLink =
+                "https://api.openweathermap.org/data/2.5/weather?lat=" +
+                lat +
+                "&lon=" +
+                lon +
+                "&units=" +
+                units +
+                "&appid=" +
+                apiKey;
+            console.log(apiLink);
+            var getJSON = function (url, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.responseType = "json";
+                xhr.onload = function () {
+                    var status = xhr.status;
+                    if (status === 200) {
+                        callback(null, xhr.response);
+                    } else {
+                        callback(status, xhr.response);
+                    }
+                };
+                xhr.send();
+            };
+
+            // gets city name from weather api
+            getJSON(apiLink, function (err, data) {
+                if (err !== null) {
+                    weatherEl.innerText = "";
+                    tempEl.innerText = "";
+                } else {
+                    var city = data.name;
+                    var temp = data.main.temp;
+                    var hiTemp = data.main.temp_max;
+                    var loTemp = data.main.temp_min;
+                    var weatherDesc = data.weather[0].description;
+                    weatherEl.innerHTML =
+                        weatherDesc + " in " + city;
+                    tempEl.innerHTML = "h: " + hiTemp + "° / l: " + loTemp + "° / t: " + temp + "°";
+                }
+            });
+        } else {
+            weatherEl.innerText = "";
+            tempEl.innerText = "";
+        }
+
+
+
+        if (animated) {
+            // hides all elements
+            document.querySelectorAll("*").forEach(el => el.style.opacity = 0);
+
+            // anime.js animation function
+            function playAnimation() {
+                var tl = anime.timeline({
+                    easing: "easeInOutExpo",
+                    duration: 2000,
+                });
+
+                tl.add({
+                    targets: "#img",
+                    opacity: [0, 1],
+                    translateY: [100, 0],
+                })
+                    .add(
+                        {
+                            targets: "#img",
+                            width: ["100%", "60%"],
+                        },
+                        "-=1200"
+                    )
+                    .add(
+                        {
+                            targets: "main *",
+                            opacity: [0, 1],
+                            translateY: [10, 0],
+                            delay: anime.stagger(15),
+                        },
+                        "-=1800"
+                    );
+            }
+
+            window.onload = function () {
+                document.querySelectorAll("*").forEach(el => el.style.opacity = 1);
+                playAnimation();
+            }
+        }
+    </script>
+</body>
+
 </html>
-<script type="text/javascript">
-
-var standardbody=(document.compatMode=="CSS1Compat")? document.documentElement : document.body
-var nav = (!document.all || window.opera);
-var x = 0;
-var y = 0;
-
-var x_offset = window.innerWidth * (-1/1.45);
-var y_offset = window.innerHeight * (-1/1.35);
-
-document.onmousemove = get_mouse; 
-
-function offset_calc(e)
-{    
- x_offset = window.innerWidth * (-1/1.45);
- y_offset = window.innerHeight * (-1/1.35);  
-}
-
-window.addEventListener('resize', offset_calc);
-function get_mouse(e)
-{    
-  x = (nav) ? e.pageX : event.clientX+standardbody.scrollLeft;
-  y = (nav) ? e.pageY : event.clientY+standardbody.scrollTop;
-  x += x_offset;
-  y += y_offset;
-  beam(1);     
-  beam(2);     
-}
-
-function beam(n)
-{
-
-  if(n===1)
-  {
-                document.getElementById('div'+n).style.top=y+'px'
-                document.getElementById('div'+n).style.left=x+'px'
-
-                document.getElementById('div'+n).style.visibility='visible'
-    n++;
-  }
-  else if(n===2)
-  {
-                document.getElementById('div'+n).style.top=(y+y_offset)+'px'
-                document.getElementById('div'+n).style.left=(x-30)+'px'
-                document.getElementById('div'+n).style.visibility='visible'
-
-  }
-
-}
-</script>
