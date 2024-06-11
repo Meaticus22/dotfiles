@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Custom Fetch: thanks to indyjoenz for the idea
+# Custom Fetch: thanks to indyjoenz for the idea https://discord.com/channels/635612648934735892/635625917623828520/1249793097907437699
 
 # Display the ANSI art
 clear
