@@ -5,7 +5,7 @@
 - terminal: [kitty](https://github.com/kovidgoyal/kitty)
 - WM: [yabai](https://github.com/koekeishiya/yabai)
 - status-bar: [spacebar](https://github.com/cmacrae/spacebar)
-- Fetch: [dayfetch](https://github.com/d4yr41n/dayfetch)
+- Fetch: [custom-fetch](https://github.com/Meaticus22/dotfiles/blob/main/fetch/fetch.md)
 - keyboard-shortcuts: [skhd](https://github.com/koekeishiya/skhd)
 - wallpaper: [Dark Background](https://github.com/Meaticus22/dotfiles/blob/main/peak.png) 
 - Firefox Startpage: [Preview](https://github.com/Meaticus22/dotfiles/tree/main/startpage-main/preview.md)
