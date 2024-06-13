@@ -5,8 +5,9 @@ options=(
 	width=2.0
 	hidpi=on
 	blur_radius=0.0
-	active_color=0x80FF0000  # Semi-transparent white
-	inactive_color=0x80FF0000  # Semi-transparent white
+	active_color=0x80FF0000  # Semi-transparent red
+	inactive_color=0x80FF0000  # Semi-transparent red
+	background_color=0x00000000  # Fully transparent background
 )
 
 borders "${options[@]}"
