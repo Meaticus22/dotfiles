@@ -8,6 +8,8 @@ DISK_PERCENT_USED=$(df -kh . | tail -n1 | awk '{print $5}')
 DISK_SIZE_TOTAL_GB=$(printf "%.0f" $(echo "$DISK_SIZE_TOTAL" | awk '{$1=$1/1.07374; print $1}'))
 DISK_SIZE_FREE_GB=$(printf "%.0f" $(echo "$DISK_SIZE_FREE" | awk '{$1=$1/1.07374; print $1}'))
 
-echo "${DISK_SIZE_FREE_GB}" GB of "${DISK_SIZE_TOTAL_GB}" GB total "(""${DISK_PERCENT_USED}"" used)|"
+echo "${DISK_SIZE_FREE_GB}"/"${DISK_SIZE_TOTAL_GB}" GB "(${DISK_PERCENT_USED})|"
+
+
 
 
