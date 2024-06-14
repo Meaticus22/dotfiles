@@ -134,9 +134,14 @@ alias termpdf='/Users/meaticus/.config/kitty/termpdf.py'
 export PATH="/opt/homebrew/opt/sphinx-doc/bin:$PATH"
 
 export TERM=xterm-256color
-mfetch
+./fetch.sh
 
 export PATH=$PATH:/Users/meaticus/.spicetify
 
 export PATH="/Users/meaticus/.local/bin:$PATH"
 
+# NNN Settings
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
+
+export XML_CATALOG_FILES=/opt/homebrew/etc/xml/catalog
