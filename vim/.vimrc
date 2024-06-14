@@ -42,6 +42,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
+Plugin 'rhysd/vim-gfm-syntax'
+Plugin 'preservim/vim-pencil'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
@@ -49,8 +51,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'frazrepo/vim-rainbow'
-Plugin 'jaxbot/semantic-highlight.vim'
+"Plugin 'frazrepo/vim-rainbow'
+"Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mhinz/vim-startify'
@@ -65,6 +67,7 @@ Plugin 'lervag/vimtex'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'conornewton/vim-latex-preview'
 Plugin 'conornewton/vim-pandoc-markdown-preview'
+Plugin 'leocus/codeassistant.vim'
 " Enable mouse use in all modes
 set mouse=a
 
@@ -145,13 +148,8 @@ set ttimeoutlen=100         	" faster timeout for escape key and others
 
 set termguicolors          	" 256 colors terminal
 
-colorscheme 256_noir
+colorscheme dw_red
 set background=dark
-" Change highlighting of cursor line when entering/leaving Insert Mode
-set nocursorline
-highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
-autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
-autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 
 " --- UI settings ---
 
@@ -199,6 +197,13 @@ endif
 if exists('+relativenumber')
   set relativenumber
 endif
+
+" Change the color of line numbers
+highlight LineNr guifg=white
+
+"Disable ~ for blank lines
+hi NonText guifg=bg
+
 
 " --- command completion ---
 set wildmenu            	" Hitting TAB in command mode will
@@ -437,7 +442,7 @@ nmap <leader>ls :call ListTrans_toggle_format()<CR>
 vmap <leader>ls :call ListTrans_toggle_format('visual')<CR>
 
 " --- vim-rainbow ---
-let g:rainbow_active = 1
+"let g:rainbow_active = 1
 
 " --- emmet-vim ---
 " press crtl+z+, to activate emmet-vim
@@ -450,8 +455,8 @@ let g:coc_config_home = '~/.vim'
 
 
 " --- goyo vim ---
-let g:goyo_height='80%'
-let g:goyo_width='80%'
+"let g:goyo_height='80%'
+"let g:goyo_width='80%'
 function! s:goyo_enter()
   set linebreak
   set spell spelllang=en_us
@@ -493,6 +498,18 @@ let g:md_args = "--template eisvogel --listings"
 
 nnoremap <Leader>p :StartMDPreview<CR>
 
+
+
+ " minimal vim command
+command ResetView set laststatus=3 | set nonumber | set norelativenumber |hi NonText guifg=bg |
+
+nnoremap <Leader>n :ResetView<CR>
+
+
+"syntax-vim
+let g:markdown_fenced_languages = ['cpp', 'ruby', 'json']
+let g:gfm_syntax_emoji_conceal = 1
+autocmd ColorScheme * highlight link githubFlavoredMarkdownCode CursorLine
 
 " -----------------------------------------------------------------------------
 " KEY MAPPINGS
@@ -584,3 +601,6 @@ nnoremap <silent> <leader>ts :set spell!<CR>
 
 " add spaces inside current parenthesis
 map <leader>( vi(xi  P
+
+
+
