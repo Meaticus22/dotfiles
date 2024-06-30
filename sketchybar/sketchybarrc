@@ -1,0 +1,146 @@
+
+
+#    #####                                                               
+#   #     # #    # ###### #####  ####  #    # #   # #####    ##   #####  
+#   #       #   #  #        #   #    # #    #  # #  #    #  #  #  #    # 
+#    #####  ####   #####    #   #      ######   #   #####  #    # #    # 
+#         # #  #   #        #   #      #    #   #   #    # ###### #####  
+#   #     # #   #  #        #   #    # #    #   #   #    # #    # #   #  
+#    #####  #    # ######   #    ####  #    #   #   #####  #    # #    # 
+#                                                                        
+
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+
+sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+
+##### Changing Defaults #####
+# We now change some default values, which are applied to all further items.
+# For a full list of all available item properties see:
+# https://felixkratz.github.io/SketchyBar/config/items
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Hack Nerd Font:Bold:12.0"
+  label.font="Hack Nerd Font:Italic:12.0"
+  icon.color=0xffffffff
+  label.color=0xffb82525
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+)
+sketchybar --default "${default[@]}"
+
+##### Adding Mission Control Space Indicators #####
+# Let's add some mission control spaces:
+# https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
+# to indicate active and available mission control spaces.
+
+SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+for i in "${!SPACE_ICONS[@]}"
+do
+  sid="$(($i+1))"
+  space=(
+    space="$sid"
+    icon="${SPACE_ICONS[i]}"
+    icon.padding_left=7
+    icon.padding_right=7
+    background.color=0xffb82525
+    background.corner_radius=5
+    background.height=25
+    label.drawing=off
+    script="$PLUGIN_DIR/space.sh"
+    click_script="yabai -m space --focus $sid"
+  )
+  sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
+done
+
+##### Adding Left Items #####
+
+sketchybar --add item chevron left \
+           --set chevron icon= label.drawing=off \
+           --add item front_app left \
+           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+           --subscribe front_app front_app_switched
+
+##### Adding Right Items #####
+
+# clock plugin
+sketchybar --add item clock right \
+           --set clock update_freq=10 icon="󰃰 " script="$PLUGIN_DIR/clock.sh" \
+
+# volume plugin
+sketchybar --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change \
+          
+# battery plugin
+sketchybar --add item battery right \
+           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --subscribe battery system_woke power_source_change
+
+# wifi plugin
+sketchybar --add item wifi right                         \
+           --set wifi    script="$PLUGIN_DIR/wifi.sh"    \
+                         background.padding_right=12     \
+                         update_freq=5
+
+# weather plugin
+sketchybar -m \
+    --add item weather right \
+    --set weather \
+        update_freq=600 \
+        script="$PLUGIN_DIR/weather.sh" \
+        icon.font="Hack Nerd Font:Regular:13.0" \
+        background.drawing=on
+
+
+# package plugin
+sketchybar -m --add item packages right \
+              --set packages update_freq=7200 \
+              --set packages script="$PLUGIN_DIR/package_monitor.sh" \
+              --set packages label=" ( )" \
+              --subscribe packages mouse.clicked
+
+# disk plugin
+sketchybar -m --add item disk_label right \
+              --set disk_label label.font="FuraCode Nerd Font:Regular:10.0" \
+                               label=DISK \
+                               y_offset=6 \
+                               width=0 \
+\
+              --add item disk_percentage right \
+              --set disk_percentage label.font="FuraCode Nerd Font:Regular:12.0" \
+                                    y_offset=-4 \
+                                    update_freq=1 \
+                                    script="~/.config/sketchybar/plugins/disk.sh"
+
+# cpu plugin
+sketchybar -m --add       item               cpu_label right                                               \
+              --set       cpu_label          label.font="SF Pro:Semibold:10"                               \
+                                             label=CPU                                                     \
+                                             y_offset=6                                                    \
+                                             width=0                                                       \
+                                                                                                           \
+              --add       item               cpu_percent right                                             \
+              --set       cpu_percent        label.font="SF Pro:Heavy:12"                                  \
+                                             y_offset=-4                                                   \
+                                             update_freq=2                                                 \
+                                             script="~/.config/sketchybar/plugins/cpu.sh"
+
+# spotify plugin
+# CURRENT SPOTIFY SONG
+	# Adding custom events which can listen on distributed notifications from other running processes
+	sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
+		--add item spotifyIndicator right \
+		--set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
+		--set spotifyIndicator icon=""
+		--set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
+		--subscribe spotifyIndicator spotify_change
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update
