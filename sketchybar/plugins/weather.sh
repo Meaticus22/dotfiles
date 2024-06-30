@@ -1,137 +1,42 @@
 #!/bin/bash
 
-API_KEY="5e16eab07dd44e5c8fd64625242806" # insert api key here
-CITY="Lexington, Virginia" # insert city here
+API_KEY="a6f5937d2bc884a4827f8e2179b94daf" # Replace with your actual OpenWeatherMap API key
+LATITUDE="37.82532"
+LONGITUDE="-79.59565"
 
-# first comment is description, second is icon number
-weather_icons_day=(
-    [1000]=  # Sunny/113
-    [1003]=  # Partly cloudy/116
-    [1006]=  # Cloudy/119
-    [1009]=  # Overcast/122
-    [1030]=  # Mist/143
-    [1063]=  # Patchy rain possible/176
-    [1066]=  # Patchy snow possible/179
-    [1069]=  # Patchy sleet possible/182
-    [1072]=  # Patchy freezing drizzle possible/185
-    [1087]=  # Thundery outbreaks possible/200
-    [1114]=  # Blowing snow/227
-    [1117]=  # Blizzard/230
-    [1135]=  # Fog/248
-    [1147]=  # Freezing fog/260
-    [1150]=  # Patchy light drizzle/263
-    [1153]=  # Light drizzle/266
-    [1168]=  # Freezing drizzle/281
-    [1171]=  # Heavy freezing drizzle/284
-    [1180]=  # Patchy light rain/293
-    [1183]=  # Light rain/296
-    [1186]=  # Moderate rain at times/299
-    [1189]=  # Moderate rain/302
-    [1192]=  # Heavy rain at times/305
-    [1195]=  # Heavy rain/308
-    [1198]=  # Light freezing rain/311
-    [1201]=  # Moderate or heavy freezing rain/314
-    [1204]=  # Light sleet/317
-    [1207]=  # Moderate or heavy sleet/320
-    [1210]=  # Patchy light snow/323
-    [1213]=  # Light snow/326
-    [1216]=  # Patchy moderate snow/329
-    [1219]=  # Moderate snow/332
-    [1222]=  # Patchy heavy snow/335
-    [1225]=  # Heavy snow/338
-    [1237]=  # Ice pellets/350
-    [1240]=  # Light rain shower/353
-    [1243]=  # Moderate or heavy rain shower/356
-    [1246]=  # Torrential rain shower/359
-    [1249]=  # Light sleet showers/362
-    [1252]=  # Moderate or heavy sleet showers/365
-    [1255]=  # Light snow showers/368
-    [1258]=  # Moderate or heavy snow showers/371
-    [1261]=  # Light showers of ice pellets/374
-    [1264]=  # Moderate or heavy showers of ice pellets/377
-    [1273]=  # Patchy light rain with thunder/386
-    [1276]=  # Moderate or heavy rain with thunder/389
-    [1279]=  # Patchy light snow with thunder/392
-    [1282]=  # Moderate or heavy snow with thunder/395
-)
+# Fetch weather data from OpenWeatherMap
+data=$(curl -s "https://api.openweathermap.org/data/2.5/weather?lat=$LATITUDE&lon=$LONGITUDE&appid=$API_KEY&units=imperial")
 
-weather_icons_night=(
-    [1000]=  # Clear/113
-    [1003]=  # Partly cloudy/116
-    [1006]=  # Cloudy/119
-    [1009]=  # Overcast/122
-    [1030]=  # Mist/143
-    [1063]=  # Patchy rain possible/176
-    [1066]=  # Patchy snow possible/179
-    [1069]=  # Patchy sleet possible/182
-    [1072]=  # Patchy freezing drizzle possible/185
-    [1087]=  # Thundery outbreaks possible/200
-    [1114]=  # Blowing snow/227
-    [1117]=  # Blizzard/230
-    [1135]=  # Fog/248
-    [1147]=  # Freezing fog/260
-    [1150]=  # Patchy light drizzle/263
-    [1153]=  # Light drizzle/266
-    [1168]=  # Freezing drizzle/281
-    [1171]=  # Heavy freezing drizzle/284
-    [1180]=  # Patchy light rain/293
-    [1183]=  # Light rain/296
-    [1186]=  # Moderate rain at times/299
-    [1189]=  # Moderate rain/302
-    [1192]=  # Heavy rain at times/305
-    [1195]=  # Heavy rain/308
-    [1198]=  # Light freezing rain/311
-    [1201]=  # Moderate or heavy freezing rain/314
-    [1204]=  # Light sleet/317
-    [1207]=  # Moderate or heavy sleet/320
-    [1210]=  # Patchy light snow/323
-    [1213]=  # Light snow/326
-    [1216]=  # Patchy moderate snow/329
-    [1219]=  # Moderate snow/332
-    [1222]=  # Patchy heavy snow/335
-    [1225]=  # Heavy snow/338
-    [1237]=  # Ice pellets/350
-    [1240]=  # Light rain shower/353
-    [1243]=  # Moderate or heavy rain shower/356
-    [1246]=  # Torrential rain shower/359
-    [1249]=  # Light sleet showers/362
-    [1252]=  # Moderate or heavy sleet showers/365
-    [1255]=  # Light snow showers/368
-    [1258]=  # Moderate or heavy snow showers/371
-    [1261]=  # Light showers of ice pellets/374
-    [1264]=  # Moderate or heavy showers of ice pellets/377
-    [1273]=  # Patchy light rain with thunder/386
-    [1276]=  # Moderate or heavy rain with thunder/389
-    [1279]=  # Patchy light snow with thunder/392
-    [1282]=  # Moderate or heavy snow with thunder/395
-)
+if [[ $? -eq 0 ]]; then
+    condition_id=$(echo $data | jq -r '.weather[0].id')
+    high_temp=$(echo $data | jq -r '.main.temp_max')
+    low_temp=$(echo $data | jq -r '.main.temp_min')
+    feelslike=$(echo $data | jq -r '.main.feels_like')
 
-CITY=$(echo "$CITY" | curl -Gso /dev/null -w %{url_effective} --data-urlencode @- "" | cut -c 3- || true)
-data=$(curl -s "http://api.weatherapi.com/v1/current.json?key=$API_KEY&q=$CITY")
+    # Round temperatures to the nearest whole number
+    high_temp=$(printf "%.0f\n" "$high_temp")
+    low_temp=$(printf "%.0f\n" "$low_temp")
+    feelslike=$(printf "%.0f\n" "$feelslike")
 
-condition=$(echo $data | jq -r '.current.condition.code')
-temp=$(echo $data | jq -r '.current.temp_f')
-feelslike=$(echo $data | jq -r '.current.feelslike_f')
-humidity=$(echo $data | jq -r '.current.humidity')
-is_day=$(echo $data | jq -r '.current.is_day')
+    # Map condition ID to icon code for Sketchybar
+    case $condition_id in
+        800) icon=" ";;
+        801) icon="⛅";;
+        802) icon="⛱";;
+        803) icon="󰖐 ";;
+        804) icon="☔";;
+        *) icon="❓";; # Default icon if condition ID is unknown
+    esac
 
-# Check if condition is not null or empty
-if [ -n "$condition" ]; then
-    [ "$is_day" = "1" ] && icon=${weather_icons_day[$condition]} || icon=${weather_icons_night[$condition]}
+    # Format the label to show high, low, and feels-like temperatures
+    label="h: ${high_temp}°F / l: ${low_temp}°F / t: ${feelslike}°F"
 
-    # Check if icon is not null or empty
-    if [ -n "$icon" ]; then
-        sketchybar -m \
-            --set weather \
-                icon="$icon" \
-                label="${temp}°F"
-    else
-        sketchybar -m \
-            --set weather \
-                label="${temp}°F"
-    fi
-else
+    # Update Sketchybar with the new label
     sketchybar -m \
         --set weather \
-            label="Error: Failed to get weather data"
+            icon="$icon" \
+            label="$label"
+else
+    echo "Failed to retrieve weather data."
 fi
+
