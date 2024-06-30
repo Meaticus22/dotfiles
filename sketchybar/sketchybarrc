@@ -91,7 +91,7 @@ sketchybar --add item wifi right                         \
 
 # weather plugin
 sketchybar -m \
-    --add item weather right \
+    --add item weather right icon="󰼵 " \
     --set weather \
         update_freq=600 \
         script="$PLUGIN_DIR/weather.sh" \
@@ -136,7 +136,7 @@ sketchybar -m --add       item               cpu_label right                    
 # CURRENT SPOTIFY SONG
 	# Adding custom events which can listen on distributed notifications from other running processes
 	sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
-		--add item spotifyIndicator right \
+		--add item spotifyIndicator left \
 		--set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
 		--set spotifyIndicator icon=""
 		--set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
