@@ -10,7 +10,7 @@
 #                                                                        
 
 
-PLUGIN_DIR="$CONFIG_DIR/plugins"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
 ##### Bar Appearance #####
 
@@ -26,8 +26,8 @@ default=(
   padding_right=5
   icon.font="Hack Nerd Font:Bold:12.0"
   label.font="Hack Nerd Font:Italic:12.0"
-  icon.color=0xffffffff
-  label.color=0xffb82525
+  icon.color=0xffb82525
+  label.color=0xffffffff
   icon.padding_left=4
   icon.padding_right=4
   label.padding_left=4
@@ -47,9 +47,12 @@ do
   space=(
     space="$sid"
     icon="${SPACE_ICONS[i]}"
+    icon.color=0xffffffff
+    icon.font.size=15.0
     icon.padding_left=7
     icon.padding_right=7
     background.color=0xffb82525
+    background.border_color=0xffb82525
     background.corner_radius=5
     background.height=30
     label.drawing=off
@@ -133,16 +136,16 @@ sketchybar -m --add       item               cpu_label right                    
                                              script="~/.config/sketchybar/plugins/cpu.sh"
 
 # spotify plugin
-# CURRENT SPOTIFY SONG
-	# Adding custom events which can listen on distributed notifications from other running processes
-	sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
-		--add item spotifyIndicator left \
-		--set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
-		--set spotifyIndicator icon=""
-		--set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
-		updates when_shown = on \
-		--subscribe spotifyIndicator spotify_change
+# Adding custom events which can listen on distributed notifications from other running processes
+sketchybar --add item spotifyIndicator left \
+sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
+--set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
+--set spotifyIndicator icon="" \
+--set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
+updates when_shown = on \ # Ensuring the item updates on script execution
+--subscribe spotifyIndicator spotify_change # Correctly subscribing to the event
+
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
-sketchybar --hotload on
+echo "sketchybar configuation loaded.."
