@@ -103,28 +103,28 @@ sketchybar -m \
 
 # disk plugin
 sketchybar -m --add item disk_label right \
-              --set disk_label label.font="FuraCode Nerd Font:Regular:10.0" \
+              --set disk_label label.font="Hack Nerd Font:Italic:12.0" \
                                label=DISK \
-                               y_offset=6 \
+                               y_offset=9 \
                                width=0 \
 \
               --add item disk_percentage right \
-              --set disk_percentage label.font="FuraCode Nerd Font:Regular:12.0" \
-              --set disk_percentage icon=" " \
-                                    icon.font="Hack Nerd Font:Bold:12.0" \
+              --set disk_percentage label.font="Hack Nerd Font:Italic:12.0" \
+              --set disk_percentage icon="" \
+                                    icon.font="Hack Nerd Font:Bold:10.0" \
                                     y_offset=-4 \
                                     update_freq=6 \
                                     script="~/.config/sketchybar/plugins/disk.sh"
 
 # cpu plugin
 sketchybar -m --add       item               cpu_label right                                               \
-              --set       cpu_label          label.font="SF Pro:Semibold:10"                               \
+              --set       cpu_label          label.font="Hack Nerd Font:Italic:12.0"                       \
                                              label=CPU                                                     \
-                                             y_offset=6                                                    \
+                                             y_offset=9                                                    \
                                              width=0                                                       \
                                                                                                            \
               --add       item               cpu_percent right                                             \
-              --set       cpu_percent        label.font="SF Pro:Heavy:12"                                  \
+              --set       cpu_percent        label.font="Hack Nerd Font:Italic:12.0"                       \
               --set       cpu_percent        icon=" "                                                     \
                                              icon.font="Hack Nerd Font:Bold:12.0"                          \
                                              y_offset=-4                                                   \
