@@ -136,16 +136,19 @@ sketchybar -m --add       item               cpu_label right                    
                                              script="~/.config/sketchybar/plugins/cpu.sh"
 
 # spotify plugin
-# Adding custom events which can listen on distributed notifications from other running processes
-sketchybar --add item spotifyIndicator left \
-sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChanged" \
---set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
---set spotifyIndicator icon="" \
---set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
-updates when_shown = on \ # Ensuring the item updates on script execution
---subscribe spotifyIndicator spotify_change # Correctly subscribing to the event
+media=(
+  script="$PLUGIN_DIR/media.sh"
+  updates=on
+)
+
+sketchybar --add item media left   \
+           --set media "${media[@]}" \
+           --set media icon="" \
+           --subscribe media media_change
 
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
+sketchybar --hotload on
+
 echo "sketchybar configuation loaded.."
