@@ -40,7 +40,7 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACE_ICONS=(" " " " "󰑴 " "󰺶 " "5" "6" "7" "8" "9" "10")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid="$(($i+1))"
@@ -51,7 +51,7 @@ do
     icon.padding_right=7
     background.color=0xffb82525
     background.corner_radius=5
-    background.height=25
+    background.height=30
     label.drawing=off
     script="$PLUGIN_DIR/space.sh"
     click_script="yabai -m space --focus $sid"
@@ -91,7 +91,7 @@ sketchybar --add item wifi right                         \
 
 # weather plugin
 sketchybar -m \
-    --add item weather right icon="󰼵 " \
+    --add item weather right icon="󰖐 " \
     --set weather \
         update_freq=600 \
         script="$PLUGIN_DIR/weather.sh" \
@@ -140,7 +140,9 @@ sketchybar -m --add       item               cpu_label right                    
 		--set spotifyIndicator script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
 		--set spotifyIndicator icon=""
 		--set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
+		updates when_shown = on \
 		--subscribe spotifyIndicator spotify_change
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
+sketchybar --hotload on
