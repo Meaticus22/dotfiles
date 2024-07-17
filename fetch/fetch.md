@@ -1,5 +1,6 @@
 # Custom Fetch For Macos!
-![fetch](https://github.com/Meaticus22/dotfiles/assets/117058929/b456feb6-69ba-4502-97fe-19bb34d407c6)
+![fetch](https://github.com/user-attachments/assets/5d4b7c84-3692-4352-a8d1-bec8bda61986)
+
 
 
 
