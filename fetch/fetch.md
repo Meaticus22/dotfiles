@@ -4,4 +4,4 @@
 
 
 
-credit goes to [indyjoenz for the idea](https://discord.com/channels/635612648934735892/635625917623828520/1249793097907437699)
+Defqon 1!
