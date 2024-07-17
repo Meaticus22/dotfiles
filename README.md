@@ -1,4 +1,4 @@
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Courier&size=100&pause=1000&color=DA0000&random=false&width=900&height=200&lines=Dotfiles.exe)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Courier&size=100&pause=1000&color=DA0000&random=false&width=900&height=200&lines=Defqon_1!)](https://git.io/typing-svg)
 
 - OS: macOS 14.2.1
 - shell: zsh
