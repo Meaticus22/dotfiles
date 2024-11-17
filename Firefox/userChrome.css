@@ -248,3 +248,7 @@ background-color: black !important;
  */
 #TabsToolbar {visibility: collapse;}
 browser {margin-right: 1px; margin-bottom: 0px;}
+#navigator-toolbox:focus-within > #PersonalToolbar{
+  visibility: visible !important;
+  max-height: initial !important;
+}
