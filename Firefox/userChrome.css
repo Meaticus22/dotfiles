@@ -9,7 +9,6 @@
 
 */
 
-
 /* User changable variables */
 
 :root {
@@ -131,7 +130,7 @@ See the above repository for updates as well as full license text. */
 }
 
 .accessibility-indicator,
-.private-browsing-indicator{ 
+.private-browsing-indicator{
 	height: unset !important;
 }
 .accessibility-indicator > hbox{ padding-block: 0 !important }
@@ -174,32 +173,23 @@ See the above repository for updates as well as full license text. */
 /* floating search bar */
 
 #urlbar-container {
-
-position: absolute !important;
-
-width: 100vw !important;
-
-top: -32px !important;
-
-left: 0 !important;
-
+	position: absolute !important;
+	width: 100vw !important;
+	top: -32px !important;
+	left: 0 !important;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
 }
 
 #urlbar[breakout][breakout-extend] {
-
-background-color: rgba(255,255,255,.5) !important;
-
-max-width: 50%;
-
-position: absolute;
-
-margin-top: 25%;
-
-margin-left: 25%;
-
-backdrop-filter: blur(20px);
-
-border-radius: 16px;
+	background-color: rgba(255,255,255,.5) !important;
+	max-width: 50%;
+	position: relative;
+	margin-top: 25%;
+	margin-left: 25%;
+	backdrop-filter: blur(20px);
+	border-radius: 16px;
 }
 #urlbar-input::-moz-selection { background-color: #ff0000 !important;
 }
@@ -234,7 +224,7 @@ background-color: black !important;
 }
 #urlbar {
   color: white !important;
-}   
+}
 #sidebar-header{ display: none }
 /*
  * Do not remove the @namespace line -- it's required for correct functioning
