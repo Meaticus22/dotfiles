@@ -1,2 +1,3 @@
-### Sleek Theme with a Psycho colorscheme
-<img width="932" alt="image" src="https://github.com/Meaticus22/dotfiles/assets/117058929/99e4b6bc-44c2-426a-afe6-0cccc220e372">
+### Custom Colorscheme
+<img width="1915" alt="image" src="https://github.com/user-attachments/assets/b008181f-ef32-465c-8173-c6f0b37ad407" />
+
